@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Carter+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Carter One", cursive;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.container--start {
+  background-color: teal;
+  color: paleturquoise;
+}
+
+/* ============= */
+/* LOADER STYLES */
+/* ============= */
+
+.opponent-search {
+  display: flex;
+  align-items: center;
+}
+
+.first,
+.second,
+.third {
+  height: 0.5rem;
+  width: 0.5rem;
+  background: paleturquoise;
+  border-radius: 50%;
+}
+
+.opponent-search div + div {
+  margin-left: 5px;
+}
+
+.first {
+  animation: loader 0.4s ease-in-out infinite alternate;
+}
+
+.second {
+  animation: loader 0.4s ease-in-out 0.1s infinite alternate;
+}
+
+.third {
+  animation: loader 0.4s ease-in-out 0.2s infinite alternate;
+}
+
+@keyframes loader {
+  to {
+    opacity: 0;
+  }
+}
+/* =============================== */
+
+.container--question {
+  background: teal;
+  padding: 0 2rem 2rem;
+}
+
+.red-border {
+  animation: blinkred 0.3s linear alternate;
+}
+
+@keyframes blinkred {
+  to {
+    background-color: darkred;
+  }
+}
+
+.green-border {
+  animation: blinkgreen 0.3s linear alternate;
+}
+
+@keyframes blinkgreen {
+  to {
+    background-color: greenyellow;
+  }
+}
+
+.question__nav {
+  background-color: paleturquoise;
+  color: teal;
+  font-size: 1.5rem;
+  margin: 0 -2rem 1rem;
+}
+
+.box {
+  font-family: "Carter One", cursive;
+  font-size: 3rem;
+  height: 6rem;
+  width: 6rem;
+  text-align: center;
+  line-height: 6rem;
+  color: teal;
+  background-color: paleturquoise;
+  border-radius: 1rem;
+}
+
+.box--blank {
+  background-color: transparent;
+}
+
+.equalto {
+  font-family: "Carter One", cursive;
+  font-size: 5rem;
+  height: 6rem;
+  width: 6rem;
+  text-align: center;
+  line-height: 7rem;
+  color: paleturquoise;
+}
+
+.progress--teal {
+  background-color: teal;
+  border-radius: 0;
+}
+
+.timer {
+  animation: progress 30s linear forwards;
+}
+
+@keyframes progress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+.box-small {
+  font-family: "Carter One", cursive;
+  font-size: 1.5rem;
+  height: 4rem;
+  width: 4rem;
+  text-align: center;
+  line-height: 4rem;
+  color: teal;
+  background: paleturquoise;
+  border-radius: 0.5rem;
+}
+
+.box-small:hover {
+  cursor: pointer;
+}
+
+.row--options {
+  margin: 1rem 1rem;
+}
+
+.options-text {
+  font-size: 1.2rem;
+  margin-right: 0.3rem;
+  text-align: center;
+  color: paleturquoise;
+  border-radius: 50%;
+  border: 3px solid paleturquoise;
+  height: 2rem;
+  width: 2rem;
+}
+
+.text {
+  font-size: 1.25rem;
+  letter-spacing: 0.15rem;
+  color: teal;
+  background: paleturquoise;
+  margin: 1rem -2rem 1rem;
+  padding-left: 1rem;
+}
+
+.box-container {
+  margin: 1rem 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.3rem solid paleturquoise;
+}
+
+.table-head {
+  font-size: 1.5rem;
+  background: lime;
+  color: teal;
+}
+
+.gameover-status {
+  font-size: 1.2rem;
+}
+
+.gameover-score {
+  font-size: 1.5rem;
+}
+
+@keyframes shake {
+  to {
+    transform: translateX(1rem);
+  }
+}
+
+.gameover-modal {
+  background: paleturquoise;
+  color: teal;
+  border: 0.2rem solid teal;
+}
+
+.modal-footer {
+  border-top: 0;
+}
+
+.modal-header--border,
+.modal-body--border {
+  border-bottom: 0.2rem solid teal;
+}
+
+.leaderboard-heading {
+  font-family: "Carter One", cursive;
+}
+
+.container--leaderboard {
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  font-size: 1rem;
+}

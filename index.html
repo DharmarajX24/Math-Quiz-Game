@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+
+    <!-- jQuery and JS bundle w/ Popper.js -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script defer src="./app.js"></script>
+    <title>Math-Game</title>
+  </head>
+  <body>
+    <div class="progress mb-4 progress--teal" id="progress-bar">
+      <div class="progress-bar"></div>
+    </div>
+
+    <div class="container container--start">
+      <div class="jumbotron bg-transparent">
+        <h1 class="display-4 mb-4">Welcome to PuZzled</h1>
+        <div class="input-group mb-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Name</span>
+          </div>
+          <input type="text" class="form-control" id="input-name" />
+        </div>
+        <div class="opponent-search d-none">
+          <div>Searching for Opponent</div>
+          <div class="first"></div>
+          <div class="second"></div>
+          <div class="third"></div>
+        </div>
+        <button class="btn btn-lg btn-warning btn--play mt-4" id="play-btn">
+          PLAY
+        </button>
+      </div>
+    </div>
+
+    <!-- GAME BOARD -->
+    <div class="container container--question d-none">
+      <div class="row justify-content-around question__nav">
+        <div class="points">Points: 0</div>
+        <div class="username"></div>
+        <div class="highscore">Highscore: 0</div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="box-container"><div class="box"></div></div>
+        <div class="box-container"><div class="box"></div></div>
+        <div class="box-container"><div class="box"></div></div>
+        <div><div class="equalto">=</div></div>
+        <div class="box-container"><div class="box"></div></div>
+      </div>
+      <div class="text">Choose the correct answer</div>
+      <div class="row">
+        <div class="row align-items-center row--options">
+          <div class="options-text">A</div>
+          <div class="options box-small">3</div>
+        </div>
+        <div class="row align-items-center row--options">
+          <div class="options-text">B</div>
+          <div class="options box-small">235</div>
+        </div>
+        <div class="row align-items-center row--options">
+          <div class="options-text">C</div>
+          <div class="options box-small">5</div>
+        </div>
+        <div class="row align-items-center row--options">
+          <div class="options-text">D</div>
+          <div class="options box-small">7</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" tabindex="-1" id="gameover-modal">
+      <div class="modal-dialog">
+        <div class="modal-content gameover-modal">
+          <div class="modal-header modal-header--border">
+            <h3 class="modal-title">GAME OVER!</h3>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body modal-body--border">
+            <p class="gameover-status"></p>
+            <p class="gameover-score"></p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEADERBOARD -->
+    <div class="container p-0 my-4 container--leaderboard">
+      <h3 class="leaderboard-heading">INSTRUCTIONS</h3>
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">
+          Press the play button and wait for an opponent to join.
+        </li>
+        <li class="list-group-item list-group-item-light">
+          This is a simple 1 VS 1 math quiz game. You will be given an
+          incomplete mathematical expression and four options, choose the option
+          that completes the mathematical expression correctly.
+        </li>
+        <li class="list-group-item list-group-item-dark">
+          Both players will have 30 seconds of time, the player with more points
+          at the end, wins the game.
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
