@@ -3,6 +3,7 @@ const playBtn = document.getElementById("play-btn");
 
 const containerStart = document.querySelector(".container--start");
 const containerQuestion = document.querySelector(".container--question");
+const questionNavbar = document.querySelector(".question__nav");
 const opponentSearch = document.querySelector(".opponent-search");
 const progressBar = document.getElementById("progress-bar");
 const quesBoxes = document.querySelectorAll(".box");
@@ -106,10 +107,9 @@ function createQues() {
   quesBoxes[blankIndex].classList.add("box--blank");
 
   for (let i = 0; i < quesBoxes.length; i++) {
-    // if (i !== blankIndex) {
-    //   quesBoxes[i].innerText = question[i];
-    // }
-    quesBoxes[i].innerText = question[i];
+    if (i !== blankIndex) {
+      quesBoxes[i].innerText = question[i];
+    }
   }
 
   const options = createOptions();
@@ -166,14 +166,14 @@ for (let i = 0; i < ansBoxes.length; i++) {
     if (e.target.innerText == correctAns) {
       points += 1;
       pointsEl.innerText = `Points: ${points}`;
-      containerQuestion.classList.add("green-border");
+      questionNavbar.classList.add("green-border");
     } else {
-      containerQuestion.classList.add("red-border");
+      questionNavbar.classList.add("red-border");
     }
 
     setTimeout(() => {
-      containerQuestion.classList.remove("green-border");
-      containerQuestion.classList.remove("red-border");
+      questionNavbar.classList.remove("green-border");
+      questionNavbar.classList.remove("red-border");
     }, 300);
 
     clearBoard();
