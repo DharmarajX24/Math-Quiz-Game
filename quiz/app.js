@@ -23,8 +23,12 @@ let correctAns;
 //socket.io
 //io function is available because of this script "http://localhost:3000/socket.io/socket.io.js"
 //You can optionally fetch client via CDN
-const env = "production"
-const socket = io(env==='production? "https://math-quiz-game.herokuapp.com/" : "http://localhost:3000");
+const env = "production";
+const socket = io(
+  env === "production"
+    ? "https://math-quiz-game.herokuapp.com/"
+    : "http://localhost:3000"
+);
 
 socket.on("connect", () => {
   playerID = socket.id;
