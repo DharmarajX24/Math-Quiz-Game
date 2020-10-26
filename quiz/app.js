@@ -13,7 +13,7 @@ const pointsEl = document.querySelector(".points");
 const usernameEl = document.querySelector(".username");
 
 let opponent = {};
-let player = {};
+let player = {}; 
 let playerID;
 let activeUsers = [];
 
