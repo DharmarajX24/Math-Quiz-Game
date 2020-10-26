@@ -4,8 +4,7 @@ const express = require("express");
 const app = express();
 app.use(express.static(__dirname));
 
-const server = app.listen(port);
-const io = require("socket.io").listen(server);
+const io = require("socket.io")(port);
 
 io.on("connection", (socket) => {
   socket.on("new-user", (activeUsers) => {
